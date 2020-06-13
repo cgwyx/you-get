@@ -4,7 +4,7 @@ FROM python:3
 
 RUN git clone -b develop git://github.com/soimort/you-get.git  &&\
         cd you-get &&\
-        ./setup.py
+        python3 setup.py install
 
 
 WORKDIR /you-get

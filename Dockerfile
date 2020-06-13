@@ -1,11 +1,13 @@
 FROM python:3
 
-WORKDIR /usr/src/app
+#RUN pip3 install you-get
 
-#COPY requirements.txt ./
-#RUN pip install --no-cache-dir -r requirements.txt
-RUN pip3 install you-get
+RUN git clone -b develop git://github.com/soimort/you-get.git  &&\
+        cd you-get &&\
+        ./setup.py
 
+
+WORKDIR /you-get
 
 #CMD [ "python", "./your-daemon-or-script.py" ]
 CMD ["/bin/sh"]
